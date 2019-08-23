@@ -4,9 +4,9 @@ from pygame.sprite import Sprite
 class Bullet(Sprite):
     """A class to  manage bullets fired from the ship. """
 
-    def __init__(self, screen, ship):
+    def __init__(self, screen, ship, settings):
         #Settings
-        self.bullet_speed_factor = 1
+        self.bullet_speed_factor = settings.bullet_speed
         self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = 60, 60, 60
