@@ -53,11 +53,15 @@ def fire_bullet(settings, screen, ship, bullets):
         bullets.add(new_bullet)
 
 
-def update_bullets(bullets):
-    """Despawn any offscreen bullets. """
+def update_bullets(bullets, aliens):
+    """Despawn any offscreen bullets.And Update current position"""
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
+    
+    # Check for any bullets that have hit aliens.
+    # If so, remove the bullet and the alien.
+    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
 
 def get_number_aliens_x(settings, alien_width):
     """Determine the number of aliens that fit in the row. """
