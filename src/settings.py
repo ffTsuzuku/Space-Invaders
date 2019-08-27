@@ -18,7 +18,7 @@ class Settings():
         self.ship_limit = 3
 
         #Speed Settings
-        self.speedup_scale = 1.1
+        self.level_up_scale = 1.1
 
         self.initialize_dynamic_settings()
 
@@ -32,16 +32,28 @@ class Settings():
         #fleet direction of 1 represents right; -1 represents left.
         self.fleet_direction = 1
 
-    def increase_speed(self):
-        """Increase speed settings."""
-        self.ship_speed_factor *= self.speedup_scale
-        self.bullet_speed_factor *= self.speedup_scale
-        self.alien_speed_factor *= self.speedup_scale
+        #Points for shooting alien
+        self.alien_points = 50
+
+    def level_up(self, stats):
+        """Increase speed settings. And Alien Points"""
+        self.ship_speed_factor *= self.level_up_scale
+        self.bullet_speed_factor *= self.level_up_scale
+        self.alien_speed_factor *= self.level_up_scale
+        self.alien_points *= int(self.level_up_scale)
+
+        #Increase the level. 
+        stats.level += 1 
+
+        self.printSettings()
 
     def printSettings(self):
         print("Screen Width: " + str(self.screen_width))
         print("Screen Height: "+  str(self.screen_height))
         print("BG Color: ", self.bg_color)
         print("Bullet Speed: " +  str(self.bullet_speed))
+        print("Points Per Alien: " + str(self.alien_points))
+        print("Alien Speed: " + str(self.alien_speed_factor))
+        print("Ship Speed: " + str(self.ship_speed_factor))
 
     
