@@ -4,11 +4,6 @@
 ## Space-Invaders
 Python Implementation of Space Invaders using Pygame. 
 
-## Table of Contents
-* [Dependencies] (#dependencies)
-* [Customizing The Game] (#customizing-the-game)
-* [Inspiration] (#inspiration)
-
 ## Dependencies
 * Python 2.7+
 * pygame 1.9.6+
@@ -42,8 +37,6 @@ self.ship_limit = 3
 
 #Speed Settings
 self.level_up_scale = 1.1
-
-self.initialize_dynamic_settings()
 
 self.ship_speed_factor = 1.5
 self.bullet_speed_factor = 3
